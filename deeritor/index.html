@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>deeritor</title>
+	<link rel="stylesheet" href="css/src/reset.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/typography.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/src/forms.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/deer.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/jquery.autocomplete.css" type="text/css" media="screen, projection" />
+	<script type="text/javascript" src="script/jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="script/jquery-ui-personalized-1.6rc2.min.js"></script>
+	<script type="text/javascript" src="script/jquery.autocomplete.min.js"></script>
+	<script type="text/javascript" src="script/deer.js"></script>
+</head>
+<body>
+	<div id="container">
+		
+			<div id="deeravatar">
+				<span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span>
+				<span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span>
+				<span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span>
+				<span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span>
+				<span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="a">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span>
+				<span class="w">&nbsp;</span><span class="w">&nbsp;</span><span class="a">&nbsp;</span><span class="a">&nbsp;</span><span class="w">&nbsp;</span><span class="w">&nbsp;</span>
+			</div><h1>deeritor</h1>
+			<small>Go to the <a href="#footer" title="Go to bottom">bottom</a> to read about this deer shit. *Works* in "all" (CSS&amp;JS ENABLED) browsers. Also, I know the code sucks and all, but hey, it sort of works!<br />
+			<b>*new functionality*</b> Export saved deer as an image (png, jpg and svg available)!</small>
+			<h2>Canvas<span id="pick"></span>
+			<span id="pholder">
+				<div id="palette">
+					<h4>Palette</h4>
+					<ul class="colors">
+					</ul>
+				</div>
+			</span></h2>
+			<div id="main">
+				<table border="1px" id="grid">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+		</div>
+		
+		<div id="presets">
+			
+			<p><input type="button" name="save" value="Save deer" id="save" /></p>
+			
+			<div id="savebox" title="Save your deer from extinction">
+				<h3>Save</h3>
+				<p><input type="text" id="deername" name="deername" value="Deer" /></p>
+				<p><input type="text" id="deercreator" name="deercreator" value="You" /></p>
+				<p><input type="button" name="dosave" value="Save for real" id="dosave" /></p>
+			</div>
+			
+			<h3>Tools</h3>
+			<ul id="tools">
+				<li class="fill_canvas">Fill pallette with current color</li>
+				<li class="reset_canvas">Reset canvas</li>
+				<li class="load_img">Generate from image</li>
+			</ul>
+			
+			<h3>Find deer</h3>
+			<p>Find deer made by kind people.</p>
+			<p><input type="text" id="deerfinder" name="deerfinder" value="Find deer..." /></p>
+			<p id="listcontrol"><span id="prevlist">&laquo; prev</span> <span id="refreshlist">refresh</span> <span id="nextlist">next &raquo;</span></p>
+			<p id="deerload">Loading...</p>
+			<ul id="deerlist"></ul>
+			
+				
+		</div>
+		
+		<div id="subbox">
+			<div>
+				<h4><acronym title="Easier for deerkins to store and parse.">kinskode</acronym></h4>
+				<p><input type="button" value="&uarr; to canvas" id="rebuild" name="rebuild" /></p>
+				<p><textarea id="output" rows="4" cols="4" name="output"></textarea></p>
+			
+			</div>
+			<div>
+				<h4><acronym title="Paste this into your IRC client">IRC codes</acronym></h4>
+				<p><input type="button" value="&uarr; to canvas" id="rebuild_irc" name="rebuild_irc" /></p>
+				<p><textarea id="ircoutput" rows="4" cols="4" name="ircoutput"></textarea></p>
+				
+				<p><code>&lt;color code&gt;01,01@</code> for a black block.</p>
+			</div>
+			
+			<div>
+				<h4>Deer on your <strike>blog</strike> manly place?</h4>
+				<p>Download an image of your deer!<br />
+				<small>(you need to save before exporting)</small></p>
+				
+				<ul id="export-type-list">
+					<li class="list-load">Loading...</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div id="footer">
+			
+			<h2>What does this do?</h2>
+			<p>The deeritor is essentially a way to make <b>deer</b> (though not exclusively) through a web interface, for easy porting to IRC.</p>
+			<p>The deer is safely saved with the <a href="http://github.com/worldeggplant/Deerkins">deerkins</a> bot, which used to reside in <a href="irc://irc.rizon.net/satf" title="#satf at irc.rizon.net">#satf</a> and <a href="irc://irc.rizon.net//a/" title="#/a/ at irc.rizon.net">#/a/</a> on irc.rizon.net.<br />
+			When you save, you will be prompted to choose a name for your creation, if the name is taken, it will automatically random a short string as a suffix.<br />
+			You will then be returned your creation in kinskode and IRC codes.<br />
+			<small>kinskode is a shorthand for IRC codes that sucks - but it's easier for this page and deerkins to interpret this sort of code. Albeit for lazy reasons.</small><br />
+			To output your deer, type <code>deerme &lt;deer&gt;</code> in a channel where deerkins is, and deerkins will start to spew out the creation, alternatively you can copy the output from mIRC/IRC codes and paste yourself.</p>
+			<p>The regexes for converting text to canvas is only working in Firefox currently, and I'm not too keen on shizzling with regex/encoding to get other browsers working too, yet.</p>
+			<p>All submitted deer are dedicated to the public domain, for everyone to use, build upon, distribute and enjoy. I, the master of all that is satf, reserves the right to delete and/or modify deer at any time. lol legal talk.</p>
+			<p>deerkins and deeritor made by Jonas Skovmand. copyright etc. <a href="http://satf.se" title="satf.se - crayons">satf.se</a>. Feedback? Features? Contribute to the project on <a href="http://github.com/worldeggplant/Deerkins">Github</a>.</p>	
+			
+		</div>
+		
+	</div>
+</body>
+</html>
