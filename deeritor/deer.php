@@ -6,8 +6,8 @@ $deer = new Deer ( );
 
 if ( isset ( $_POST['name'] ) )
 {
-	$max_rows = 15;
-	$max_cols = 26;
+	$max_rows = 20;
+	$max_cols = 30;
 
 	$kins_deer = $deer->fix_deer ( $max_rows );
 	$irc_deer = $deer->parse_deer ( $kins_deer );
@@ -21,5 +21,5 @@ if ( isset ( $_POST['name'] ) )
 	);
 
 	echo json_encode ( $output );
-	
+
 }
