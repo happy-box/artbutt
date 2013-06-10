@@ -1,8 +1,8 @@
 var currentColor = 'w';
 var delMode = false;
 
-var numRows = 15;
-var numCols = 26;
+var numRows = 20;
+var numCols = 30;
 
 var listFrom = 0;
 var listNum = 10;
@@ -86,10 +86,10 @@ function init ( )
 
 	//fillPalette ( 'empty' );
 	var loadDeer = 'deer';
-	
+
 	if ( location.hash.substring(1) != "" && location.hash.substring(1) != false )
 		loadDeer = location.hash.substring(1);
-			
+
 	deerLoad ( loadDeer, true );
 	deerList ( );
 
@@ -343,12 +343,12 @@ function register_deer ( deer )
 
 	var export_types = [ "jpg", "png", "svg" ];
 	var html = '';
-	
+
 	for ( var type in export_types )
 	{
 		html += '<li><a href="img/' + deer + '.' + export_types[type] + '" title="Export to ' + export_types[type] + '">Export to ' + export_types[type] + '</a></li>';
 	}
-	
+
 	$('#export-type-list').html( html );
 
 }
@@ -455,22 +455,22 @@ $(document).ready( function ( )
 				if ( confirm ( "Are you sure? This can't be undone." ) )
 					fillPalette ( 'empty' );
 			break;
-			
+
 			case 'load_img':
-			
+
 				var img = prompt ( 'Image URL', 'http://' );
 				if ( img!=null&&img!='')
-				{ 
+				{
 					$.getJSON('deerimg.php?_img=' + img + '&callback=?',function(data){
 						if ( data.status=='success' )
 						{
 							$('#output').val(data.kinskode);
 							reverse_engideer ( false );
-							
+
 						}
 					});
 				}
-			
+
 			break;
 
 			case 'test_crop':
