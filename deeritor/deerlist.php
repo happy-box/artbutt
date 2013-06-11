@@ -8,9 +8,9 @@ $return = array ( );
 
 if ( @!empty ( $_GET['deer'] ) )
 {
-	
+
 	$return = $deer->get_deer ( $_GET['deer'] );
-	
+
 }
 elseif ( @!empty ( $_GET['q'] ) )
 {
@@ -20,17 +20,17 @@ elseif ( @!empty ( $_GET['q'] ) )
 }
 else
 {
-	$stop = 10;
+	$stop = 20;
 	$extended = false;
-	
+
 	if ( isset ( $_GET['extended'] ) )
 	{
-	
+
 		$stop = 1;
 		$extended = true;
-		
+
 	}
-	
+
 	$return = $deer->paged_deer ( $_GET['start'], $stop, $extended );
 
 }

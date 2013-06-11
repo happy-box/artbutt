@@ -149,7 +149,7 @@ function save ( deername, deercreator )
 	}, function ( result )
 	{
 
-		prompt ( "The deer is complete!", result.name );
+		prompt ( "The art is complete!", result.name );
 		var output = str_replace ( ' ', '&nbsp;', result.raw );
 		$("#output").html ( output ).select();
 		$("#ircoutput").html ( result.ircraw );
@@ -370,7 +370,7 @@ function foundDeer ( event, data, formatted )
 {
 
 	if ( !data )
-		alert ( "No such deer...?" );
+		alert ( "No such art...?" );
 	else
 		deerLoad ( formatted );
 
