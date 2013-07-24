@@ -46,6 +46,7 @@ class Connection extends IRCine_Core {
 		$this->info = array (
 			'name'		=>	$server_name,
 			'address'	=>	Mootyconf::get_value($this->server_config_prefix . '::address'),
+			'ssl'		=>	Mootyconf::get_value($this->server_config_prefix . '::ssl'),
 			'port'		=>	Mootyconf::get_value($this->server_config_prefix . '::port'),
 			'pass'		=>	Mootyconf::get_value($this->server_config_prefix . '::pass'),
 			'channels'	=>	Mootyconf::get_values($this->server_config_prefix . '::channels'),
@@ -63,9 +64,12 @@ class Connection extends IRCine_Core {
 		$this->online_start = microtime ( true );
 		
 		$this->main->log ( 'Connecting to ' . $this->info['address'] . '...', __CLASS__ );
-	
-		$this->socket = @fsockopen( $this->info['address'], $this->info['port'], $erno, $errstr, 30 );
-		@stream_set_blocking( $this->socket, false );
+		if ($this->info['ssl']) {
+			$this->socket = fsockopen( 'sslv3://' . $this->info['address'].'/', $this->info['port'], $erno, $errstr, 30 );
+		} else {
+			$this->socket = @fsockopen( $this->info['address'], $this->info['port'], $erno, $errstr, 30 );
+		}
+		@stream_set_blocking( $this->socket, 0 );
 		@stream_set_timeout( $this->socket, $this->listen_timeout );
 		
 		if ( $this->state ( ) == false )
