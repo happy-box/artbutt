@@ -1,9 +1,8 @@
 <?php
 
 /**
- * deerkins.php
- * main file that loads stuff.
- * author: Jonas Skovmand <jonas@satf.se>
+ * artbutt.php
+ * This launches the IRC bot
  */
 
 error_reporting ( E_ALL );
