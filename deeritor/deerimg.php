@@ -71,8 +71,8 @@ $max_width = 325;
 $max_height = 300;
 
 $colsize = 650/26;
-$columns = 26;
-$rows = 15;
+$columns = 30;
+$rows = 20;
 
 $low_width = $max_width / $columns;
 $low_height = $max_height / $rows;
