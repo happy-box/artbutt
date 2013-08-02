@@ -43,6 +43,7 @@ function rgb2hex2rgb($c){
 }
 
 $url = $_GET['_img'];
+//$url = "http://i.imgur.com/DBPKpY7.jpg";
 $file = filter_var ( $url,  FILTER_VALIDATE_URL ); 
 
 if ( !$file )
@@ -67,8 +68,8 @@ else
 	exit;
 }
 
-$max_width = 325;
-$max_height = 300;
+$max_width = 30;
+$max_height = 33;
 
 $colsize = 1.6667;
 $columns = 30;
@@ -163,25 +164,28 @@ for ( $i=0; $i<$palette_length; $i++ )
 	$icol[$i] = imagecolorallocate ( $palette, $c[0], $c[1], $c[2] );
 	imagefilledrectangle ( $palette, $i*$fh, $i*$fh, ($i*$fh)+$fh, ($i*$fh)+$fh, $icol[$i] );
 }
-
+imagejpeg($newImg2,"final.jpg");
 //$step_x = $resize_width;
 //$step_y = $resize_height;
 $step_x = $use_width/$resize_width;
 $step_y = $use_height/$resize_height;
-
+$step_x = $columns;
+$step_y = $rows;
 $step_width = ($use_width / $columns);
 $step_height = ($use_height / $rows);
 
+// print "Final dims: ".$step_x."x".$step_y;
+
 $kinskode = '';
 
-for($y=0;$y<$step_y;$y++)
+for($y=0;$y<$rows;$y++)
 {
 	$r_y = (round($y*$step_y)-($step_y/2))+$step_y;
-	for ( $x=0;$x<$step_x;$x++)
+	for ( $x=0;$x<$columns;$x++)
 	{
 		
 		$r_x = (round($x*$step_x)-($step_x/2))+$step_x;
-		$rgb = imagecolorat($newImg2, $r_x, $r_y);
+		$rgb = imagecolorat($newImg2, $x, $y);
 		$r = ($rgb >> 16) & 0xFF;
 		$g = ($rgb >> 8) & 0xFF;
 		$b = $rgb & 0xFF;
