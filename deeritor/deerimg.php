@@ -42,7 +42,7 @@ function rgb2hex2rgb($c){
    return $out;
 }
 
-$url = "http://i.imgur.com/DBPKpY7.jpg"; //$_GET['_img']
+$url = $_GET['_img']
 $file = filter_var ( $url,  FILTER_VALIDATE_URL ); 
 
 if ( !$file )
