@@ -42,8 +42,8 @@ function rgb2hex2rgb($c){
    return $out;
 }
 
-
-$file = filter_var ( $_GET['_img'], FILTER_VALIDATE_URL );
+$url = "http://i.imgur.com/DBPKpY7.jpg"; //$_GET['_img']
+$file = filter_var ( $url,  FILTER_VALIDATE_URL ); 
 
 if ( !$file )
 	exit;
@@ -70,7 +70,7 @@ else
 $max_width = 325;
 $max_height = 300;
 
-$colsize = 650/26;
+$colsize = 1.6667;
 $columns = 30;
 $rows = 20;
 
@@ -101,18 +101,23 @@ else
 }
 
 
-$resize_width = round ( $resize_width );
-$resize_height = round ( $resize_height );
+$resize_width = $columns;
+$resize_height = round($rows*$colsize);
 
-
+// print("RESIZE DIMS: ".$resize_width."x".$resize_height."!!!");
 
 # Create small version of the original image:
 $newImg = imagecreatetruecolor($width,$height);
 imagecopyresized($newImg,$img,0,0,0,0, $resize_width,$resize_height,$width,$height);
 
+// imagejpeg($newImg, "test_smallversion.jpg");
+
 # Create 100% version ... blow it back up to it's initial size:
 $newImg2 = imagecreatetruecolor($use_width,$use_height);
 imagecopyresized($newImg2,$newImg,0,0,0,0,$use_width,$use_height,$resize_width, $resize_height);
+
+
+// imagejpeg($newImg2, "test_small_blownupversion.jpg");
 
 $colors = array (
 	'w'	=>	'#000000',
