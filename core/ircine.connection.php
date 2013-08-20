@@ -65,7 +65,7 @@ class Connection extends IRCine_Core {
 		
 		$this->main->log ( 'Connecting to ' . $this->info['address'] . '...', __CLASS__ );
 		if ($this->info['ssl']) {
-			$this->socket = fsockopen( 'sslv3://' . $this->info['address'].'/', $this->info['port'], $erno, $errstr, 30 );
+			$this->socket = fsockopen( 'sslv3://' . $this->info['address'], $this->info['port'], $erno, $errstr, 30 );
 		} else {
 			$this->socket = @fsockopen( $this->info['address'], $this->info['port'], $erno, $errstr, 30 );
 		}
